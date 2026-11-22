@@ -1,0 +1,39 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables></variables><comment id="bkL~?@Z9nidOT,`sX2fq" x="2212" y="1095" w="420" h="120">
+==========================================
+BUTTON A
+==========================================
+</comment><comment id="N4^uS1rzW4qD=~t}^xUl" x="0" y="1268" w="420" h="120">
+==========================================
+BUTTON B
+==========================================
+</comment><comment id="/Tp01H0Yzh5^}y/(Y[NX" x="465" y="1268" w="420" h="120">
+==========================================
+BUTTON C
+==========================================
+</comment><comment id=".I$Rh!DIa(H~;)Ge14%i" x="930" y="1268" w="420" h="120">
+==========================================
+BUTTON D
+==========================================
+</comment><comment id="),9|Z]$YfF6~%k@QoD{_" x="1395" y="1268" w="420" h="120">
+==========================================
+BUTTON E
+==========================================
+</comment><comment id="yMUCMZ,JemG9h[2y1#n|" x="1860" y="1268" w="420" h="120">
+==========================================
+BUTTON F
+==========================================
+</comment><comment id="C#M330A}w[)$(@6-b6+F" x="2325" y="1268" w="420" h="120">
+==========================================
+BUTTON Z (JOYSTICK)
+==========================================
+</comment><comment id="kvNGF9gy^AXGc:Yy4c6U" x="0" y="1433" w="420" h="120">
+==========================================
+MAIN LOOP
+==========================================
+</comment><comment id=":Mw{~P+w_U]Q4]|lf`.E" x="465" y="1433" w="420" h="200">
+==========================================
+DFRobot GamePad V4.0
+BUTTON TEST v0.3
+micro:bit V2
+==========================================
+</comment><block type="pxt-on-start" id="!4[)oJ;mAZ4H*2y`[9Pt" x="0" y="0"><statement name="HANDLER"><block type="device_led_enable" id=";nFmjA}KW!Xp!@sQ*;3t"><data>8</data><value name="on"><shadow type="logic_boolean" id="Xze9n+P:Qhc0`tG@gtJJ"><field name="BOOL">FALSE</field></shadow></value><next><block type="serial_redirect_to_usb" id=",=dpnrC?,WXIz3[6t`8!"><next><block type="serial_writeline" id="L,J7Acg+1zs?)K0nWsHz"><value name="text"><shadow type="text" id="iLT9NO{o~X]NWPSDp`3;"><field name="TEXT">==========================</field></shadow></value><next><block type="serial_writeline" id="MF9=UC(r_!-2n|1)vU`~"><value name="text"><shadow type="text" id="j%k3iZc5+PAbDU;LhTg;"><field name="TEXT">DFROBOT GAMEPAD V4.0</field></shadow></value><next><block type="serial_writeline" id="wHcb?@~4@UaQ|ym;l,|h"><value name="text"><shadow type="text" id="Aw|arFE+og]gPe)HeuJW"><field name="TEXT">BUTTON TEST v0.3</field></shadow></value><next><block type="serial_writeline" id="kAy6!}I(Woxc-/NjM3%T"><value name="text"><shadow type="text" id="m,3EmYbEqw,`J4oIc$z*"><field name="TEXT">==========================</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></statement></block></xml>
