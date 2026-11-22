@@ -9,7 +9,8 @@
     "files": [
         "README.md",
         "gamepad.ts",
-        "_locales/pl/strings.json"
+        "_locales/pl/strings.json",
+        "_locales/pl/gamepad-strings.json"
     ],
     "testFiles": [
         "main.ts",
