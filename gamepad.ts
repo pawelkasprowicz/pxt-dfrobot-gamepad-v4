@@ -1,8 +1,9 @@
 /**
  * DFRobot GamePad V4.0
  * MakeCode extension for micro:bit V2
- * Version 0.3
+ * Version 0.3.1
  */
+
 //% color="#00897B" icon="\uf11b" block="DFRobot GamePad"
 namespace dfGamepad {
 
@@ -41,27 +42,18 @@ namespace dfGamepad {
         Released = 2
     }
 
-    // =====================================
-    // JOYSTICK
-    // =====================================
-
     let centerX = 512
     let centerY = 512
-
     let deadZone = 10
     let maxSpeed = 100
-
     let invertX = false
     let invertY = false
-
     let responseMode = ResponseMode.Linear
 
     let currentX = 0
     let currentY = 0
-
     let currentM1 = 0
     let currentM2 = 0
-
     let currentRawX = 512
     let currentRawY = 512
 
@@ -70,9 +62,9 @@ namespace dfGamepad {
      * Keep joystick released.
      */
     //% block="calibrate joystick"
+    //% block.loc.pl="kalibruj joystick"
     //% weight=100
     export function calibrate(): void {
-
         let sumX = 0
         let sumY = 0
 
@@ -84,7 +76,6 @@ namespace dfGamepad {
 
         centerX = Math.round(sumX / 20)
         centerY = Math.round(sumY / 20)
-
         update()
     }
 
@@ -136,7 +127,6 @@ namespace dfGamepad {
     }
 
     function convertAxis(value: number, center: number): number {
-
         let result = 0
 
         if (value >= center) {
@@ -161,7 +151,6 @@ namespace dfGamepad {
     }
 
     function applyResponse(value: number): number {
-
         let sign = value < 0 ? -1 : 1
         let magnitude = Math.abs(value) / 100
 
@@ -180,7 +169,6 @@ namespace dfGamepad {
     //% block="update joystick"
     //% weight=90
     export function update(): void {
-
         currentRawX = pins.analogReadPin(AnalogPin.P1)
         currentRawY = pins.analogReadPin(AnalogPin.P2)
 
@@ -266,9 +254,7 @@ namespace dfGamepad {
     // =====================================
 
     const BUTTON_EVENT_ID = 8900
-
     let buttonsInitialized = false
-
     let holdTime = 1000
     let debounceTime = 30
 
@@ -322,7 +308,6 @@ namespace dfGamepad {
     //% block="initialize buttons"
     //% weight=70
     export function initButtons(): void {
-
         if (buttonsInitialized) {
             return
         }
@@ -340,20 +325,16 @@ namespace dfGamepad {
 
             changeTime[i] = input.runningTime()
             pressTime[i] = input.runningTime()
-
             holdReported[i] = false
         }
 
         buttonsInitialized = true
 
         control.inBackground(function () {
-
             while (true) {
-
                 let now = input.runningTime()
 
                 for (let i = 0; i < 7; i++) {
-
                     let raw = readButton(i)
 
                     if (raw != lastRawState[i]) {
@@ -365,11 +346,9 @@ namespace dfGamepad {
                         raw != stableState[i] &&
                         now - changeTime[i] >= debounceTime
                     ) {
-
                         stableState[i] = raw
 
                         if (raw) {
-
                             pressTime[i] = now
                             holdReported[i] = false
 
@@ -377,9 +356,7 @@ namespace dfGamepad {
                                 BUTTON_EVENT_ID,
                                 eventValue(i, ButtonEvent.Pressed)
                             )
-
                         } else {
-
                             control.raiseEvent(
                                 BUTTON_EVENT_ID,
                                 eventValue(i, ButtonEvent.Released)
@@ -392,7 +369,6 @@ namespace dfGamepad {
                         !holdReported[i] &&
                         now - pressTime[i] >= holdTime
                     ) {
-
                         holdReported[i] = true
 
                         control.raiseEvent(
@@ -413,9 +389,7 @@ namespace dfGamepad {
     //% block="button %button is pressed"
     //% weight=65
     export function isPressed(button: GamepadButton): boolean {
-
         initButtons()
-
         return stableState[button]
     }
 
@@ -426,7 +400,6 @@ namespace dfGamepad {
     //% milliseconds.min=100 milliseconds.max=5000
     //% weight=64
     export function setHoldTime(milliseconds: number): void {
-
         holdTime = Math.constrain(milliseconds, 100, 5000)
     }
 
@@ -437,7 +410,6 @@ namespace dfGamepad {
     //% milliseconds.min=0 milliseconds.max=100
     //% weight=63
     export function setDebounce(milliseconds: number): void {
-
         debounceTime = Math.constrain(milliseconds, 0, 100)
     }
 
@@ -451,7 +423,6 @@ namespace dfGamepad {
         event: ButtonEvent,
         handler: () => void
     ): void {
-
         initButtons()
 
         control.onEvent(
